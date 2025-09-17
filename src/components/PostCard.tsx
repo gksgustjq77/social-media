@@ -10,8 +10,8 @@ interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
-    <div className="space-y-3 rounded-lg bg-white p-4 shadow">
-      <PostHeader user={post.author} relativeTime={""} />
+    <div className="space-y-5 rounded-lg bg-white p-4 shadow">
+      <PostHeader user={post.author} createdAt={post.createdAt} />
       <PostContent content={post.content} />
       <PostImages images={post.images} />
       <PostActions

@@ -1,4 +1,3 @@
-// pages/index.tsx
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { getPosts } from "../api/api";
@@ -30,9 +29,11 @@ const FeedPage = () => {
         dataLength={posts.length}
         next={fetchPosts}
         hasMore={hasMore}
-        loader={<h4 className="text-center">로딩중...</h4>}
+        loader={<h4 className="text-center">...</h4>}
         endMessage={
-          <p className="text-center text-gray-500">더 이상 게시물이 없습니다</p>
+          <p className="text-center text-gray-500">
+            더 이상 게시물이 없습니다.
+          </p>
         }
       >
         <div className="space-y-4">

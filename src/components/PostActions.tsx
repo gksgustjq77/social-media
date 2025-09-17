@@ -27,15 +27,18 @@ const PostActions: React.FC<PostActionsProps> = ({
 
   return (
     <div className="flex justify-around text-sm text-gray-500">
-      <button onClick={onLike} className="flex hover:text-blue-500">
+      <button onClick={onLike} className="flex border-none hover:text-red-500">
         <img src={likeImg} className="max-w-[20px]"></img> &nbsp;좋아요&nbsp;
         {likes}
       </button>
-      <button onClick={onRetweet} className="flex hover:text-green-500">
+      <button
+        onClick={onRetweet}
+        className="flex border-none hover:text-blue-500"
+      >
         <img src={retweetImg} className="max-w-[20px]"></img> &nbsp;리트윗&nbsp;
         {retweets}
       </button>
-      <button className="flex hover:text-gray-700">
+      <button className="flex border-none hover:text-gray-700">
         <img src={"/images/comment.png"} className="max-w-[20px]"></img>
         &nbsp;댓글&nbsp;{comments}
       </button>
