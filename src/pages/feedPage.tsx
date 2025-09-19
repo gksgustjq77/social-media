@@ -1,4 +1,3 @@
-// FeedPage.tsx
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { getPosts } from "../apis/api";
