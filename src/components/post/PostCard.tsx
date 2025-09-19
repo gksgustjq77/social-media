@@ -5,8 +5,8 @@ import PostContent from "./PostContent";
 import PostImages from "./PostImages";
 import PostActions from "./PostActions";
 import PostComments from "./PostComments";
-import type { Post } from "../\btypes/PostType";
-import { toggleLike } from "../apis/api";
+import type { Post } from "../../types/PostType";
+import { toggleLike } from "../../apis/api";
 
 interface PostCardProps {
   post: Post;

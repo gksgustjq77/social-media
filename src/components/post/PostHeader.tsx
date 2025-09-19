@@ -1,4 +1,4 @@
-import type { User } from "../types/UserType";
+import type { User } from "../../types/UserType";
 import { formatDistanceToNow, parseISO } from "date-fns";
 import { ko } from "date-fns/locale";
 import { LazyLoadImage } from "react-lazy-load-image-component";

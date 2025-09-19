@@ -22,6 +22,11 @@ const WritePage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!category) {
+      alert("카테고리를 선택해주세요.");
+      return false;
+    }
+
     const imageUrls = images.map((f) => URL.createObjectURL(f));
     const maxId = Math.max(...posts.map((p) => p.id));
     const newPost: Post = {

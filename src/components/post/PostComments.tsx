@@ -1,6 +1,6 @@
 // components/CommentList.tsx
 import { formatDistanceToNow, parseISO } from "date-fns";
-import type { Comment } from "../types/CommentType";
+import type { Comment } from "../../types/CommentType";
 import { ko } from "date-fns/locale";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
