@@ -19,13 +19,17 @@ const PostImages: React.FC<PostImagesProps> = ({ images }) => {
     <>
       <div className="grid grid-cols-2 gap-2">
         {images.map((img, idx) => (
-          <LazyLoadImage
+          <div
             key={idx}
-            src={img}
-            alt={`image-${idx}`}
-            className="cursor-pointer rounded-md object-cover"
+            className="relative flex h-40 w-full cursor-pointer items-center justify-center overflow-hidden rounded-md bg-gray-100"
             onClick={() => setSelectedImage(idx)}
-          />
+          >
+            <LazyLoadImage
+              src={img}
+              alt={`image-${idx}`}
+              className="max-h-full max-w-full object-contain"
+            />
+          </div>
         ))}
       </div>
 
