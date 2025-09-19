@@ -28,6 +28,7 @@ const FeedPage = () => {
       sort: sortBy,
     });
     setPosts(data);
+    setPage(2);
     if (data.length < 5) setHasMore(false);
   };
 
@@ -54,45 +55,47 @@ const FeedPage = () => {
 
   return (
     <div className="mx-auto max-w-xl">
-      <div className="mb-4 flex flex-wrap justify-end gap-2">
-        <button
-          onClick={() => setSelectedCategory(null)}
-          className={`rounded-full border px-3 py-1 ${
-            selectedCategory === null
-              ? "border-blue-500 bg-blue-500 text-white"
-              : "border-gray-300 bg-white text-gray-700"
-          } text-sm`}
-        >
-          전체
-        </button>
-
-        {mockCategories.map((cat) => (
+      <div className="sticky top-0 z-50 flex flex-col gap-2 rounded-lg bg-white p-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-wrap justify-start gap-2 sm:justify-start">
           <button
-            key={cat.id}
-            onClick={() => setSelectedCategory(cat.id)}
-            className={`rounded-full border px-3 py-1 text-sm ${
-              selectedCategory === cat.id
+            onClick={() => setSelectedCategory(null)}
+            className={`rounded-full border px-3 py-1 focus:outline-none active:outline-none ${
+              selectedCategory === null
                 ? "border-blue-500 bg-blue-500 text-white"
                 : "border-gray-300 bg-white text-gray-700"
-            }`}
+            } text-sm`}
           >
-            {cat.name}
+            전체
           </button>
-        ))}
-      </div>
 
-      <div className="mb-4 flex justify-end">
-        <select
-          value={sortBy}
-          onChange={(e) => setSortBy(e.target.value as "newest" | "oldest")}
-          className="rounded border px-2 py-1 text-sm"
-        >
-          {sortOptions.map((opt) => (
-            <option key={opt.value} value={opt.value}>
-              {opt.label}
-            </option>
+          {mockCategories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setSelectedCategory(cat.id)}
+              className={`rounded-full border px-3 py-1 text-sm font-semibold focus:outline-none active:outline-none ${
+                selectedCategory === cat.id
+                  ? "border-blue-500 bg-blue-500 text-white"
+                  : "border-gray-300 bg-white text-gray-700"
+              }`}
+            >
+              {cat.name}
+            </button>
           ))}
-        </select>
+        </div>
+
+        <div className="mt-2 flex justify-start sm:mt-0 sm:justify-end">
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as "newest" | "oldest")}
+            className="rounded border px-2 py-1 text-sm"
+          >
+            {sortOptions.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <InfiniteScroll
@@ -106,7 +109,7 @@ const FeedPage = () => {
           </p>
         }
       >
-        <div className="space-y-4">
+        <div className="mt-2 space-y-4">
           {posts.map((post, idx) => (
             <PostCard key={`${post.id}-${idx}`} post={post} />
           ))}
