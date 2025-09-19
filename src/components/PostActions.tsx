@@ -57,8 +57,9 @@ const PostActions: React.FC<PostActionsProps> = ({
       </button>
 
       <button
-        onClick={onCommentToggle}
-        className="flex items-center border-none hover:text-gray-700 focus:outline-none active:outline-none"
+        onClick={comments > 0 ? onCommentToggle : undefined}
+        disabled={comments === 0}
+        className={`flex items-center border-none text-gray-700 focus:outline-none`}
       >
         <LazyLoadImage
           src="/images/comment.png"
