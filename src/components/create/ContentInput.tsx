@@ -14,7 +14,14 @@ const ContentInput: React.FC<Props> = ({ content, setContent }) => {
         rows={4}
         value={content}
         maxLength={280}
-        onChange={(e) => setContent(e.target.value)}
+        onChange={(e) => {
+          const value = e.target.value;
+          if (value.length <= 280) {
+            setContent(value);
+          } else {
+            setContent(value.slice(0, 280));
+          }
+        }}
       />
       <p className="text-right text-sm text-gray-500">{content.length} / 280</p>
     </div>
