@@ -31,3 +31,9 @@ export const getPosts = async ({
   await new Promise((resolve) => setTimeout(resolve, 500));
   return data.slice((page - 1) * limit, page * limit) as Post[];
 };
+
+export const toggleLike = async (postId: number) => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  return { success: true };
+};

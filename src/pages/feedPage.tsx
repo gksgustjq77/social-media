@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { getPosts } from "../api/api";
+import { getPosts } from "../apis/api";
 import type { Post } from "../types/PostType";
 import PostCard from "../components/PostCard";
 import { mockCategories } from "../mock/mockCategories";

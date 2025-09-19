@@ -15,7 +15,7 @@ export const mockPosts = [
     createdAt: "2025-09-15T14:30:00Z",
     likes: 67,
     retweets: 12,
-    comments: 8,
+    comments: 3,
     isLiked: false,
     isRetweeted: false,
     hasMoreComments: true,
