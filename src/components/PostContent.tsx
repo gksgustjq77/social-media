@@ -1,8 +1,9 @@
 interface PostContentProps {
   content: string;
+  categoryName: string;
 }
 
-const PostContent: React.FC<PostContentProps> = ({ content }) => {
+const PostContent: React.FC<PostContentProps> = ({ content, categoryName }) => {
   const hashFilter = () => {
     return content.split(" ").map((c, idx) => {
       if (c.startsWith("#")) {
@@ -19,7 +20,12 @@ const PostContent: React.FC<PostContentProps> = ({ content }) => {
       );
     });
   };
-  return <p className="whitespace-pre-wrap text-left">{hashFilter()}</p>;
+  return (
+    <div className="text-left">
+      <p className="text-gray-500">{categoryName}</p>
+      <p className="whitespace-pre-wrap text-left">{hashFilter()}</p>
+    </div>
+  );
 };
 
 export default PostContent;

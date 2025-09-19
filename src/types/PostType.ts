@@ -15,5 +15,5 @@ export interface Post {
   isLiked: boolean;
   isRetweeted: boolean;
   hasMoreComments: boolean;
-  commentList?: Comment;
+  commentList: Comment[];
 }

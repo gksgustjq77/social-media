@@ -1,10 +1,10 @@
 import "./App.css";
-import FeedPage from "./pages";
+import IndexPage from "./pages";
 
 function App() {
   return (
     <>
-      <FeedPage></FeedPage>
+      <IndexPage />
     </>
   );
 }

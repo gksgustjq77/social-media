@@ -12,7 +12,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
     <div className="space-y-5 rounded-lg bg-white p-4 shadow">
       <PostHeader user={post.author} createdAt={post.createdAt} />
-      <PostContent content={post.content} />
+      <PostContent content={post.content} categoryName={post.categoryName} />
       <PostImages images={post.images} />
       <PostActions
         likes={post.likes}

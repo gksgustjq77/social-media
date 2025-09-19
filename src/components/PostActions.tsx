@@ -27,19 +27,27 @@ const PostActions: React.FC<PostActionsProps> = ({
 
   return (
     <div className="flex justify-around text-sm text-gray-500">
-      <button onClick={onLike} className="flex border-none hover:text-red-500">
-        <img src={likeImg} className="max-w-[20px]"></img> &nbsp;좋아요&nbsp;
-        {likes}
+      <button
+        onClick={onLike}
+        className={`flex items-center border-none focus:outline-none active:border-none active:outline-none ${
+          isLiked ? "text-red-500" : "hover:text-red-500"
+        }`}
+      >
+        <img src={likeImg} className="max-w-[20px]" /> &nbsp;좋아요&nbsp;{likes}
       </button>
+
       <button
         onClick={onRetweet}
-        className="flex border-none hover:text-blue-500"
+        className={`flex items-center border-none focus:outline-none active:border-none active:outline-none ${
+          isRetweeted ? "text-blue-500" : "hover:text-blue-500"
+        }`}
       >
-        <img src={retweetImg} className="max-w-[20px]"></img> &nbsp;리트윗&nbsp;
+        <img src={retweetImg} className="max-w-[20px]" /> &nbsp;리트윗&nbsp;
         {retweets}
       </button>
-      <button className="flex border-none hover:text-gray-700">
-        <img src={"/images/comment.png"} className="max-w-[20px]"></img>
+
+      <button className="flex items-center border-none hover:text-gray-700 focus:outline-none active:outline-none">
+        <img src={"/images/comment.png"} className="max-w-[20px]" />
         &nbsp;댓글&nbsp;{comments}
       </button>
     </div>
