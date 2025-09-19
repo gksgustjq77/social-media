@@ -1,3 +1,6 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 interface PostActionsProps {
   likes: number;
   isLiked: boolean;
@@ -6,6 +9,7 @@ interface PostActionsProps {
   comments: number;
   onLike: () => void;
   onRetweet: () => void;
+  onCommentToggle: () => void;
 }
 
 const PostActions: React.FC<PostActionsProps> = ({
@@ -16,6 +20,7 @@ const PostActions: React.FC<PostActionsProps> = ({
   comments,
   onLike,
   onRetweet,
+  onCommentToggle,
 }) => {
   const likeImg = isLiked
     ? "/images/free-icon-hearts-red.png"
@@ -33,7 +38,8 @@ const PostActions: React.FC<PostActionsProps> = ({
           isLiked ? "text-red-500" : "hover:text-red-500"
         }`}
       >
-        <img src={likeImg} className="max-w-[20px]" /> &nbsp;좋아요&nbsp;{likes}
+        <LazyLoadImage src={likeImg} alt="like" className="max-w-[20px]" />{" "}
+        &nbsp;좋아요&nbsp;{likes}
       </button>
 
       <button
@@ -42,12 +48,23 @@ const PostActions: React.FC<PostActionsProps> = ({
           isRetweeted ? "text-blue-500" : "hover:text-blue-500"
         }`}
       >
-        <img src={retweetImg} className="max-w-[20px]" /> &nbsp;리트윗&nbsp;
-        {retweets}
+        <LazyLoadImage
+          src={retweetImg}
+          alt="retweet"
+          className="max-w-[20px]"
+        />{" "}
+        &nbsp;리트윗&nbsp;{retweets}
       </button>
 
-      <button className="flex items-center border-none hover:text-gray-700 focus:outline-none active:outline-none">
-        <img src={"/images/comment.png"} className="max-w-[20px]" />
+      <button
+        onClick={onCommentToggle}
+        className="flex items-center border-none hover:text-gray-700 focus:outline-none active:outline-none"
+      >
+        <LazyLoadImage
+          src="/images/comment.png"
+          alt="comment"
+          className="max-w-[20px]"
+        />
         &nbsp;댓글&nbsp;{comments}
       </button>
     </div>

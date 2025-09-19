@@ -11,6 +11,8 @@ const FeedPage = () => {
 
   const fetchPosts = async () => {
     const data = await getPosts({ page, limit: 5 });
+
+    console.log("data ", data);
     if (data.length === 0) {
       setHasMore(false);
       return;
@@ -37,8 +39,8 @@ const FeedPage = () => {
         }
       >
         <div className="space-y-4">
-          {posts.map((post) => (
-            <PostCard key={post.id} post={post} />
+          {posts.map((post, idx) => (
+            <PostCard key={`${post.id}-${idx}`} post={post} />
           ))}
         </div>
       </InfiniteScroll>
