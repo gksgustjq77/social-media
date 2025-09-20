@@ -33,7 +33,7 @@ export const getPosts = async ({
 };
 
 export const toggleLike = async (_postId: number) => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 100));
 
   return { success: true };
 };
